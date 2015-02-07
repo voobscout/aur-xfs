@@ -16,29 +16,15 @@ makedepends=('git' 'pkg-config' 'autoconf' 'automake' 'gettext' 'xproto' 'xtrans
 url="http://ftp.x.org/pub/individual/app"
 provides=('xfs')
 # optdepends=()
-
-source=('http://ftp.x.org/pub/individual/app/$pkgname-$pkgver.tar.gz'
-       )
-
-sha256sums=('28f89b854d1ff14fa1efa5b408e5e1c4f6a145420310073c4e44705feeb6d23b'
-           )
-
+source=("http://ftp.x.org/pub/individual/app/$pkgname-$pkgver.tar.gz")
+sha256sums=('28f89b854d1ff14fa1efa5b408e5e1c4f6a145420310073c4e44705feeb6d23b')
 install=xfs.install
 options=(!strip)  # Thanks to sidereus for pointing this out
 
 build() {
-
-  msg "Connecting to ${_gitroot}..."
-
-  if [ -d ${srcdir}/${_gitname} ] ; then
-      cd ${srcdir}/${_gitname} && git pull origin master
-  else
-    git clone $_gitroot
-  fi
-
   msg "GIT checkout done or server timeout"
 
-  cd ${srcdir}/${_gitname}
+  cd ${srcdir}/${pkgname}-${pkgver}
 
   msg "Configuring XFS..."
   ./configure --prefix=/usr
@@ -50,6 +36,6 @@ build() {
 
 package() {
   msg "Installing XFS"
-  cd ${srcdir}/${_gitname}
+  cd ${srcdir}/${pkgname}-${pkgver}
   make DESTDIR=${pkgdir} install
 }
