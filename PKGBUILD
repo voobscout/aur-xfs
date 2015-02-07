@@ -8,7 +8,7 @@
 pkgname=xfs
 pkgver=1.1.4
 pkgrel=1
-pkgdesc="X Font Server TrueType"
+pkgdesc="X Font Server"
 arch=('i686' 'x86_64')
 license=('GPL2')
 # depends=()
@@ -31,7 +31,6 @@ build() {
 
   msg "Compiling XFS... "
   make
-
 }
 
 package() {
