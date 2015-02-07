@@ -1,0 +1,35 @@
+pre_install() {
+  cat << "EOM"
+Pre install
+EOM
+}
+
+post_install() {
+  cat << "EOM"
+Post install
+EOM
+}
+
+pre_upgrade() {
+  cat << "EOM"
+Pre upgrade
+EOM
+}
+
+post_upgrade() {
+  cat << "EOM"
+Post upgrade
+EOM
+}
+
+pre_remove() {
+  cat << "EOM"
+Pre remove
+EOM
+}
+
+post_remove() {
+  cat << "EOM"
+Pre remove
+EOM
+}
