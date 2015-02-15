@@ -1,0 +1,14 @@
+[Unit]
+Description=X Font Server
+After=network.target
+
+[Service]
+Type=simple
+# ExecStartPre=/usr/bin/xfstt-find-ttf
+# EnvironmentFile=/etc/default/xfs
+ExecStart=/usr/bin/xfs -config /etc/default/xfs -nodaemon
+Restart=always
+RestartSec=5
+
+[Install]
+Alias=xfs.service

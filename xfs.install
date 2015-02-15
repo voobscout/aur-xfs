@@ -6,7 +6,7 @@ EOM
 
 post_install() {
   cat << "EOM"
-Post install
+Reloading systemd unit... ???
 EOM
 }
 
