@@ -32,7 +32,9 @@ package() {
   cd ${srcdir}/xfs-${pkgver}
   make DESTDIR=${pkgdir} install
 
+  msg2 "Installing systemd xfs unit"
   install -Dm 0644 ${srcdir}/xfs.service ${pkgdir}/usr/lib/systemd/system/xfs.service
+  msg2 "Installing xfs default config"
   install -Dm 0644 ${srcdir}/xfs.config ${pkgdir}/etc/default/xfs
 }
 # vim:set ts=2 sw=2 et:
