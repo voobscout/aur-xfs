@@ -6,8 +6,9 @@ EOM
 
 post_install() {
   cat << "EOM"
-Reloading systemd unit... ???
+Post install
 EOM
+echo -e "\033[35;1m systemctl enable xfs && systemctl restart xfs \033[0m"
 }
 
 pre_upgrade() {

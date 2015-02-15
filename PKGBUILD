@@ -34,6 +34,5 @@ package() {
 
   install -Dm 0644 ${srcdir}/xfs.service ${pkgdir}/usr/lib/systemd/system/xfs.service
   install -Dm 0644 ${srcdir}/xfs.config ${pkgdir}/etc/default/xfs
-  msg "sudo systemctl enable xfs"
 }
 # vim:set ts=2 sw=2 et:
