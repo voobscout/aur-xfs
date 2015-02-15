@@ -30,6 +30,6 @@ EOM
 
 post_remove() {
   cat << "EOM"
-Pre remove
+Post remove
 EOM
 }
