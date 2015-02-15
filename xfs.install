@@ -1,36 +1,29 @@
-pre_install() {
-  cat << "EOM"
-Pre install
-EOM
-}
-
 post_install() {
-  cat << "EOM"
-Post install
-EOM
-echo -e "\033[35;1m systemctl enable xfs && systemctl restart xfs \033[0m"
+echo -e "\033[32;1mX Font Server package installs '/etc/default/xfs' config file\033[0m"
+echo -e "\033[32;1mX Font Server package installs 'xfs' systemd unit\033[0m"
+echo -e "\033[32;1mPlease remember to edit config file and enable / (re)start systemd unit!\033[0m"
+echo -e "\033[31;1msudo \$EDITOR /etc/default/xfs\033[0m"
+echo -e "\033[31;1msudo systemctl enable xfs\033[0m"
+echo -e "\033[31;1msudo systemctl restart xfs\033[0m"
 }
 
 pre_upgrade() {
-  cat << "EOM"
-Pre upgrade
-EOM
+echo -e "\033[31;1mStopping xfs systemd unit for upgrade...\033[0m"
+sudo systemctl stop xfs
 }
 
 post_upgrade() {
-  cat << "EOM"
-Post upgrade
-EOM
+echo -e "\033[32;1mRemember to (re)start xfs systemd unit...\033[0m"
+echo -e "\033[31;1msudo systemctl restart xfs\033[0m"
 }
 
 pre_remove() {
-  cat << "EOM"
-Pre remove
-EOM
+echo -e "\033[31;1mStopping xfs systemd unit...\033[0m"
+sudo systemctl stop xfs
+echo -e "\033[31;1mDisabling xfs systemd unit...\033[0m"
+sudo systemctl disable xfs
 }
 
 post_remove() {
-  cat << "EOM"
-Post remove
-EOM
+echo -e "\033[31;1mX Font Server removed!\033[0m"
 }
